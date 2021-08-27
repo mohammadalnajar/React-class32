@@ -5,6 +5,7 @@ import Guarantee from './guarantee';
 import chat from './assets/chat.png'
 import coin from './assets/coin.png'
 import delivery from './assets/f-delivery.png'
+import Counter from './counter';
 
 function App() {
   const hobbies = [
@@ -22,6 +23,9 @@ function App() {
       <Guarantee img={chat} title='Online support 24/7' description={description}/>
       <Guarantee img={coin} title='100% Money back' description={description}/>
       <Guarantee img={delivery} title='Free shipping' description={description}/>
+      </div>
+      <div>
+        <Counter/>
       </div>
     </div>
   );
