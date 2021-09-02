@@ -49,3 +49,11 @@ li {
 .d-flex {
   display: flex;
 }
+
+.second-exercise {
+  color: white;
+  background-color: rgb(70, 70, 70);
+}
+.dog-gallery {
+  background-color: rgb(151, 151, 151);
+}
