@@ -57,3 +57,10 @@ li {
 .dog-gallery {
   background-color: rgb(151, 151, 151);
 }
+.dog-gallery img {
+  border-radius: 5px;
+}
+.dog-gallery img:hover {
+  transform: scale(1.09);
+  transition: transform 0.5s ease-in-out;
+}

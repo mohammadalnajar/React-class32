@@ -5,12 +5,12 @@ import Friend from './components/Friend';
 function App() {
   return (
     <div className='App'>
-      <div className='my-4 first-exercise'>
+      <div className='my-4 pt-4 first-exercise'>
         <h1>Exercise 1</h1>
         <Friend />
         <hr />
       </div>
-      <div className='py-4 second-exercise'>
+      <div className='pt-4 my-4 second-exercise'>
         <h1>Exercise 2</h1>
         <DogGallery />
         <hr />
