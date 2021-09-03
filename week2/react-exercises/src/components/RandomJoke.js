@@ -4,13 +4,15 @@ import Joke from './Joke';
 export default function RandomJoke() {
   const [joke, setJoke] = useState({});
   useEffect(() => {
-    (async () => {
-      const response = await fetch(
-        'https://official-joke-api.appspot.com/random_joke'
-      );
-      const data = await response.json();
-      setJoke(data);
-    })();
+    setTimeout(() => {
+      (async () => {
+        const response = await fetch(
+          'https://official-joke-ai.appspot.com/random_joke'
+        );
+        const data = await response.json();
+        setJoke(data);
+      })();
+    }, 2000);
   });
   return (
     <div>
