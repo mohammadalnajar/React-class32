@@ -4,7 +4,7 @@ import CityList from './components/CityList';
 import { SearchBar } from './components/SearchBar';
 
 function App() {
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState({});
   const [loading, setLoading] = useState({ status: 'ready' });
 
   return (

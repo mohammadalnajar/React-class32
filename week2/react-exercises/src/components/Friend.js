@@ -14,9 +14,13 @@ export default function Friend() {
     email: '',
   });
   async function getFriend() {
-    const response = await fetch('https://www.randomuser.me/api?results=1');
-    const data = await response.json();
-    setFriend(data.results[0]);
+    try {
+      const response = await fetch('https://www.randomuser.me/api?results=1');
+      const data = await response.json();
+      setFriend(data.results[0]);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div className='mt-4'>
