@@ -1,7 +1,12 @@
 import React from 'react';
 
 export default function FriendProfile({ friend }) {
-  const { name, location, phone, email } = friend != null ? friend : false;
+  const {
+    name,
+    phone,
+    email,
+    location: { street, city, country },
+  } = friend;
   return (
     <div className='d-flex'>
       <ul className='list-group list-group-flush'>
@@ -10,11 +15,10 @@ export default function FriendProfile({ friend }) {
           {name.first} {name.last}
         </li>
         <li className='list-group-item'>
-          <strong> Address:</strong> {location.street.name}{' '}
-          {location.street.number} in {location.city}
+          <strong> Address:</strong> {street.name} {street.number} in {city}
         </li>
         <li className='list-group-item'>
-          <strong>Country: </strong> {location.country}
+          <strong>Country: </strong> {country}
         </li>
         <li className='list-group-item'>
           <strong>Email: </strong> {email}

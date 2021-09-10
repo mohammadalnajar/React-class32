@@ -4,24 +4,20 @@ export const SearchBar = ({ setCity, setLoading }) => {
   const [searchInput, setSearchInput] = useState('');
   const [inputFocus, setInputFocus] = useState(false);
 
-  const searchCity = (e) => {
+  const searchCity = async (e) => {
     e.preventDefault();
     setLoading({ status: 'pending' });
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`
-    )
-      .then((res) => res.json())
-      .then((weatherData) => {
-        setCity([weatherData]);
-
-        // this timeout is only to let show the loading spinner
-        setTimeout(() => {
-          setLoading({ status: 'done' });
-        }, 500);
-
-        setSearchInput('');
-      })
-      .catch((err) => console.log(err));
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`
+      );
+      const weatherData = await response.json();
+      setCity(weatherData);
+      setLoading({ status: 'done' });
+      setSearchInput('');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

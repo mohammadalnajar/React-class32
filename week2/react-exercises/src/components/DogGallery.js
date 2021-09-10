@@ -4,14 +4,12 @@ import DogPhoto from './DogPhoto';
 
 export default function DogGallery() {
   const [dogPhotos, setDogPhotos] = useState([]);
-  function getDogPhoto() {
-    fetch('https://api.thedogapi.com/v1/images/search')
-      .then((res) => res.json())
-      .then((res) => {
-        setDogPhotos((prevPhotos) => {
-          return [...prevPhotos, res[0].url];
-        });
-      });
+  async function getDogPhoto() {
+    const response = await fetch('https://api.thedogapi.com/v1/images/search');
+    const data = await response.json();
+    setDogPhotos((prevPhotos) => {
+      return [...prevPhotos, data[0].url];
+    });
   }
 
   return (

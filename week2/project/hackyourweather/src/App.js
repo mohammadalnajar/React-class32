@@ -4,7 +4,7 @@ import CityList from './components/CityList';
 import { SearchBar } from './components/SearchBar';
 
 function App() {
-  const [city, setCity] = useState([]);
+  const [city, setCity] = useState(null);
   const [loading, setLoading] = useState({ status: 'ready' });
 
   return (
@@ -16,10 +16,8 @@ function App() {
       ) : (
         <h2 className='text-center mt-5'>
           Please search for a{' '}
-          <strong className='text-decoration-underline'>
-            {'city'.toUpperCase()}
-          </strong>{' '}
-          to get its weather data
+          <strong className='text-decoration-underline'>CITY</strong> to get its
+          weather data
         </h2>
       )}
     </div>
