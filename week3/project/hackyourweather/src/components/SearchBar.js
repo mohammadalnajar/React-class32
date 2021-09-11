@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const SearchBar = ({ setCity, setLoading }) => {
+export const SearchBar = ({ setCities, setLoading, setError }) => {
   const [searchInput, setSearchInput] = useState('');
   const [inputFocus, setInputFocus] = useState(false);
 
@@ -12,9 +12,17 @@ export const SearchBar = ({ setCity, setLoading }) => {
         `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${process.env.REACT_APP_OPENWEATHERMAP_API_KEY}`
       );
       const weatherData = await response.json();
-      setCity(weatherData);
-      setLoading({ status: 'done' });
-      setSearchInput('');
+      if (weatherData.cod === 200) {
+        setCities((prevState) => {
+          return [weatherData, ...prevState];
+        });
+        setLoading({ status: 'done' });
+        setSearchInput('');
+      } else if (weatherData.cod === '404') {
+        setError({ status: true, msg: weatherData.message });
+        setLoading({ status: 'done' });
+      }
+      console.log(weatherData);
     } catch (err) {
       console.log(err);
     }

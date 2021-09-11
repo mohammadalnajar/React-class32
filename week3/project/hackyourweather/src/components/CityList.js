@@ -1,17 +1,13 @@
 import React from 'react';
 import City from './City';
-function CityList({ cityState, loading }) {
+function CityList({ cities, loading }) {
   return (
     <>
       <ul className='city-list mt-5'>
         {loading.status === 'pending' ? (
           <div className='spinner mt-5'></div>
-        ) : loading.status === 'done' && cityState.cod === 200 ? (
-          <City key={cityState.id} city={cityState} />
-        ) : cityState.cod === '404' ? (
-          <h2 className='mt-5'>City not found</h2>
         ) : (
-          <h2 className='mt-5'>Something went wrong</h2>
+          cities.map((city) => <City key={city.id} city={city} />)
         )}
       </ul>
     </>
