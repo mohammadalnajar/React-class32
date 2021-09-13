@@ -21,6 +21,8 @@ ul.city-list {
   padding: 20px;
   margin: 20px;
   min-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 body {
   padding: 0;
@@ -104,4 +106,8 @@ form:valid .fa {
   to {
     transform: rotate(360deg);
   }
+}
+
+.recharts-tooltip-label {
+  color: #07051a;
 }
